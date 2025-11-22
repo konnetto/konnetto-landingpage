@@ -574,123 +574,95 @@ select:focus {
   border-top: 1px solid #0f172a;
 }
 
-/* Responsive tweaks */
-/* ========= RESPONSIVE ADD-ON ========= */
+/* =========================
+   MOBILE-FIRST OVERRIDES
+   Tempel di PALING BAWAH CSS kamu
+   ========================= */
 
-/* Fluid type utk judul besar */
-.title {
-  font-size: clamp(28px, 3.2vw, 46px);
+/* Fluid type scale kecil */
+:root {
+  --fs-body: clamp(14px, 1.4vw + 10px, 16px);
+  --fs-h1: clamp(26px, 5.3vw + 8px, 44px);
+  --fs-h2: clamp(22px, 4.6vw + 6px, 36px);
+  --fs-h3: clamp(18px, 3.2vw + 6px, 24px);
 }
 
-/* Container padding mengecil di layar kecil */
-@media (max-width: 1024px) {
+body {
+  font-size: var(--fs-body);
+}
+
+/* Container padding lebih sempit di layar kecil */
+@media (max-width: 1200px) {
   .container {
     padding: 0 20px;
   }
-  .section {
-    padding: 72px 0;
-  }
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container {
-    padding: 0 16px;
-  }
-  .section {
-    padding: 60px 0;
+    padding: 0 18px;
   }
 }
 
-/* Hero: jadi 1 kolom di tablet/ponsel, visual center */
-@media (max-width: 1100px) {
+/* Header: rapikan di mobile */
+@media (max-width: 900px) {
+  .nav {
+    padding: 10px 0;
+  }
+  .brand img {
+    height: 20px;
+  }
+  .links {
+    display: none;
+  } /* sembunyikan menu horisontal */
+  .cta .btn {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Judul2 pakai clamp */
+.title {
+  font-size: var(--fs-h1);
+}
+.benefits .heading {
+  font-size: var(--fs-h2);
+}
+
+/* HERO jadi 1 kolom; jarak & ukuran lebih pas */
+@media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 18px;
   }
-  .hero-visual {
-    max-width: 720px;
-    margin: 0 auto;
+  .hero .title {
+    margin-bottom: 6px;
   }
-}
-@media (max-width: 600px) {
+  .hero p.muted {
+    font-size: 15px;
+  }
   .hero-visual {
     border-radius: 18px;
-  }
-  .hero-visual img {
-    border-radius: 14px;
   }
   .ribbon {
-    right: 10px;
-    bottom: 10px;
+    transform: rotate(11deg);
     padding: 8px 12px;
-    transform: rotate(10deg);
+    right: 12px;
+    bottom: 12px;
+  }
+  .btn {
+    padding: 12px 18px;
+    font-size: 15px;
   }
 }
 
-/* About & Benefits: ubah grid bertahap */
-@media (max-width: 1100px) {
-  .about .cards {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .benefits .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-}
-@media (max-width: 720px) {
-  .about .cards,
-  .benefits .grid {
-    grid-template-columns: 1fr;
-  }
-  .about .card,
-  .benefits .card {
-    padding: 22px;
-    border-radius: 20px;
-  }
-  .about .c-icon {
-    width: 64px;
-    height: 64px;
-  }
-  .about h3 {
-    font-size: 20px;
-  }
-}
-
-/* Belong/Gallery */
-@media (max-width: 1024px) {
-  .belong .wrap {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .gallery {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 560px) {
-  .gallery {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .tile {
-    border-radius: 16px;
-  }
-}
-
-/* ===== CTA SUPER RESPONSIVE ===== */
-/* 2 kolom (name/email) di desktop, stack di mobile */
-@media (min-width: 769px) {
-  .form {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 768px) {
+/* CTA: form 1 kolom & tombol full width */
+@media (max-width: 900px) {
   .cta-section {
-    padding: 70px 0;
+    padding: 56px 0 64px;
   }
   .cta-box {
-    max-width: 680px;
     padding: 18px;
-    border-radius: 18px;
+    border-radius: 16px;
   }
   .form {
     grid-template-columns: 1fr;
@@ -698,57 +670,156 @@ select:focus {
   }
   .input,
   select {
+    height: 48px;
+    font-size: 15px;
     padding: 12px 14px;
-    font-size: 16px;
   }
-  .btn.dark {
-    padding: 14px 18px;
-    font-size: 16px;
+  .btn.full {
+    width: 100%;
   }
   .legend {
-    font-size: 14px;
-  }
-}
-/* very small phones */
-@media (max-width: 380px) {
-  .cta-box {
-    padding: 14px;
-  }
-  .input,
-  select {
-    padding: 11px 12px;
-  }
-  .btn.dark {
-    padding: 12px 16px;
+    font-size: 13px;
   }
 }
 
-/* Footer grid: pecah bertahap */
+/* ABOUT: kartu lebih kecil, 1 kolom (<=720) / 2 kolom (<=1024) */
+@media (max-width: 1024px) {
+  .about .cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 720px) {
+  .about .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about .card {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+  .about .c-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 10px;
+  }
+  .about .c-icon .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .about h3 {
+    font-size: var(--fs-h3);
+    margin: 4px 0 6px;
+  }
+  .about p {
+    font-size: 14.5px;
+  }
+}
+
+/* BENEFITS: 2 kolom (<=900), 1 kolom (<=540) */
+@media (max-width: 900px) {
+  .benefits .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+@media (max-width: 540px) {
+  .benefits .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .benefits .card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .benefits .icon-bubble {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+  }
+  .benefits .icon-bubble .icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* COMMUNITY/BELONG + gallery */
+@media (max-width: 1024px) {
+  .belong .wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+@media (max-width: 540px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Chips/tags mengecil agar tidak “meledak” */
+@media (max-width: 720px) {
+  .pill {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .tags {
+    gap: 10px;
+  }
+}
+
+/* Footer: kolom jadi 2 -> 1 kolom */
 @media (max-width: 1024px) {
   .fgrid {
     grid-template-columns: 1fr 1fr;
+    gap: 22px;
   }
 }
 @media (max-width: 720px) {
   .fgrid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 18px;
   }
-  .site-footer .brand img {
-    height: 22px;
+  .site-footer {
+    padding-top: 28px;
+  }
+  .fcol h4 {
+    font-size: 15px;
+  }
+  .fcol a {
+    font-size: 14.5px;
+    margin: 6px 0;
+  }
+  .site-footer .connect-col .socials {
+    gap: 14px;
+  }
+  .site-footer .connect-col .social-link svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
-/* Sentuhan kecil utk aksesibilitas touch */
-@media (hover: none) {
-  .btn:active {
-    transform: translateY(0);
+/* Perhalus shadow di mobile biar gak terlalu berat */
+@media (max-width: 720px) {
+  .hero-visual,
+  .about .card,
+  .benefits .card,
+  .tile {
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.12);
   }
 }
 
-/* Pastikan elemen form shrink dengan baik */
-.input,
-select,
-.btn {
-  min-width: 0;
+/* Kecilkan sedikit tombol navbar di very-narrow screens */
+@media (max-width: 380px) {
+  .cta .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .brand span {
+    font-size: 15px;
+  }
 }
