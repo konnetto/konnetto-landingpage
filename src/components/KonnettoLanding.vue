@@ -157,16 +157,35 @@ const isModalOpen = ref(false);
 const currentYear = new Date().getFullYear();
 const bgm = ref(null);
 
-const joinWaitlist = () => {
+const joinWaitlist = async () => {
   const trimmed = email.value.trim();
   if (!trimmed) return;
 
-  // TODO: kirim ke backend / API Konnetto nanti
-  console.log('Waitlist email:', trimmed);
+  try {
+    const res = await fetch("https://api.konnetto.co/api/v1/users/pre-registration", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: trimmed }),
+    });
 
-  email.value = '';
-  isModalOpen.value = true;
+    const result = await res.json();
+    console.log("API Response:", result);
+
+    if (res.ok) {
+      isModalOpen.value = true;
+      email.value = "";
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+
+  } catch (err) {
+    console.error("Network error:", err);
+    alert("Network error encountered. Please try again later.");
+  }
 };
+
 
 const toggleMusic = async () => {
   const audio = bgm.value;
