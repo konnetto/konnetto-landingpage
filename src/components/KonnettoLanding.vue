@@ -3,13 +3,15 @@
     <div class="page">
       <div class="starfield" aria-hidden="true"></div>
 
+      <!-- HEADER -->
       <header>
         <img src="/logo.png" alt="Konnetto logo" class="logo" />
         <div class="brand-name">KONNETTO</div>
       </header>
 
+      <!-- HERO -->
       <main>
-        <!-- LEFT: copy + form -->
+        <!-- LEFT HERO CONTENT -->
         <section class="left">
           <div class="badge">
             <span class="badge-dot"></span>
@@ -27,7 +29,7 @@
 
           <p class="subcopy">
             Scrolling, but searching for your sign? When we go online together,
-            your oshi, your friends, and your stories all meet under the same
+            your oshi, your friends, and your stories meet under the same
             <em>hoshizora</em>.
           </p>
 
@@ -42,27 +44,22 @@
             <span class="pill">✨ Share fanart, stories, and secret memes together</span>
           </div>
 
+          <!-- CTA FORM -->
           <div class="cta-row">
             <form class="waitlist-form" @submit.prevent="joinWaitlist">
-              <input
-                v-model="email"
-                type="email"
-                name="email"
-                class="email-input"
-                placeholder="Enter your email"
-                required
-              />
+              <input v-model="email" type="email" name="email" class="email-input" placeholder="Enter your email"
+                required />
               <button class="btn btn-primary" type="submit">
-                Notify me when it’s live
-                <span>✨</span>
+                Notify me when it’s live <span>✨</span>
               </button>
             </form>
+
             <span class="eta-text">
               No spam. Just one gentle ping when Konnetto goes <strong>online</strong>.
             </span>
           </div>
 
-          <!-- Lyric strip -->
+          <!-- LYRIC STRIP -->
           <div class="lyric-strip">
             <div class="lyric-marquee">
               キラキラ画面 light up my night · my heart go dokidoki time ·
@@ -71,47 +68,122 @@
               Konnetto de, we go kyun-kyun ☆ · under the 星空 we start ·
             </div>
           </div>
+
+          <!-- SOCIAL PROOF (now still part of hero, biar nggak “patah”) -->
+          <div class="proof-row hero-proof">
+            <span class="proof-dot"></span>
+            <span class="proof-text">3,214 fans already joined the orbit ⭐</span>
+          </div>
         </section>
 
-        <!-- RIGHT: chibi -->
+        <!-- RIGHT CHIBI -->
         <aside class="right">
           <div class="chibi-wrapper">
             <div class="chibi-glow" aria-hidden="true"></div>
 
-            <img
-              src="/konnetto-chibi.png"
-              alt="Konnetto chibi character"
-              class="chibi-img"
-            />
+            <img src="/konnetto-chibi.png" class="chibi-img" alt="Konnetto chibi" />
 
             <div class="speech">
               <small>HOSHINO-CHAN</small>
-              “Ah… you’re here online? ✨<br />
+              “Ah… you're here online? ✨<br />
               Wait for me a little more, okay?<br />
-              We’ll go kyun-kyun together on Konnetto.”
+              We'll go kyun-kyun together on Konnetto.”
             </div>
           </div>
         </aside>
       </main>
 
+      <!-- PRODUCT PREVIEW / MOCKUPS -->
+      <section class="feature-showcase">
+        <h2 class="showcase-title">
+          A cozy digital home built for <span>anime culture</span>
+        </h2>
+        <p class="showcase-sub">
+          A small preview of what Konnetto is bringing to the otaku internet.
+        </p>
+
+        <div class="mockup-row">
+          <div class="mockup-card">
+            <img src="/mockup-feed.png" alt="Konnetto Feed UI" />
+            <div class="mockup-label">Your fandom feed</div>
+          </div>
+
+          <div class="mockup-card">
+            <img src="/mockup-profile.png" alt="Creator Profile UI" />
+            <div class="mockup-label">Creator profiles</div>
+          </div>
+
+          <div class="mockup-card">
+            <img src="/mockup-library.png" alt="Anime Library UI" />
+            <div class="mockup-label">Share your favorite anime with friends</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY KONNETTO -->
+      <section class="why-section">
+        <h2>Why <span>Konnetto</span>?</h2>
+
+        <div class="why-cards">
+          <div class="why-card">
+            <h3>🌟 Made for anime culture</h3>
+            <p>
+              Exactly the platform anime fans always wished existed —
+              not another generic social app. Your feed, watchlist, fandoms,
+              and creators live together in one cozy orbit.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <h3>🎨 Fans × Creators together</h3>
+            <p>
+              Support artists, join tiers, explore fan clubs, and enjoy
+              interactions that actually feel meaningful — built for real connection.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <h3>✨ A warm, starry community space</h3>
+            <p>
+              A safe and expressive corner of the internet where your oshi,
+              your friends, and your fandom memories shine under one hoshizora.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EARLY BENEFITS -->
+      <section class="benefit-section">
+        <h2>Join early & get exclusive perks</h2>
+
+        <ul class="benefit-list">
+          <li>✨ Early access before public launch</li>
+          <li>⭐ Limited Founding Member badge (never available again)</li>
+          <li>🔒 Reserve your @username early</li>
+          <li>🗳️ Help decide which feature unlocks first</li>
+        </ul>
+
+        <p class="benefit-note">
+          Join the orbit now & be part of the first Konnetto constellation.
+        </p>
+      </section>
+
+      <!-- FOOTER -->
       <footer>
         © {{ currentYear }} Konnetto · The orbit of otaku culture.
       </footer>
     </div>
 
-    <!-- Background music -->
+    <!-- MUSIC -->
     <audio ref="bgm" src="/konnetto-theme.mp3" loop></audio>
 
-    <!-- Floating music widget -->
+    <!-- FLOATING MUSIC WIDGET -->
     <div class="music-widget">
-      <button
-        class="music-btn"
-        type="button"
-        :aria-label="isPlaying ? 'Pause Konnetto theme' : 'Play Konnetto theme'"
-        @click="toggleMusic"
-      >
+      <button class="music-btn" type="button" :aria-label="isPlaying ? 'Pause theme' : 'Play theme'"
+        @click="toggleMusic">
         {{ isPlaying ? "⏸" : "♪" }}
       </button>
+
       <div class="music-meta">
         <div class="music-title">Konnetto J-Pop Moe Theme</div>
         <div class="music-sub">short ver. · launch night</div>
@@ -119,14 +191,10 @@
       </div>
     </div>
 
-    <!-- Moe success modal -->
-    <div
-      v-if="isModalOpen"
-      class="modal-backdrop"
-      @click.self="closeModal"
-    >
+    <!-- MOE MODAL -->
+    <div v-if="isModalOpen" class="modal-backdrop" @click.self="closeModal">
       <div class="modal-card">
-        <div class="modal-sparkle" aria-hidden="true"></div>
+        <div class="modal-sparkle"></div>
         <div class="modal-inner">
           <div class="modal-avatar">
             <img src="/hoshino-wave.png" alt="Hoshino-chan waving" />
@@ -136,8 +204,7 @@
             <strong>Hoshino-chan</strong> safely kept your email in her starry inbox.
           </div>
           <div class="modal-quote">
-            “When Konnetto opens under the <em>hoshizora</em>, I’ll gently ping you…
-            so, stay close to me, okay? (´｡• ᵕ •｡`)♡”
+            “When Konnetto opens under the <em>hoshizora</em>, I’ll gently ping you…”
           </div>
           <button class="modal-btn" type="button" @click="closeModal">
             Okay, I’ll wait~ <span>🌙</span>
@@ -162,30 +229,28 @@ const joinWaitlist = async () => {
   if (!trimmed) return;
 
   try {
-    const res = await fetch("https://api.konnetto.co/api/v1/users/pre-registration", {
-      method: "POST",
+    const res = await fetch('https://api.konnetto.co/api/v1/users/pre-registration', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email: trimmed }),
     });
 
     const result = await res.json();
-    console.log("API Response:", result);
+    console.log('API Response:', result);
 
     if (res.ok) {
       isModalOpen.value = true;
-      email.value = "";
+      email.value = '';
     } else {
-      alert("Something went wrong. Please try again.");
+      alert('Something went wrong. Please try again.');
     }
-
   } catch (err) {
-    console.error("Network error:", err);
-    alert("Network error encountered. Please try again later.");
+    console.error('Network error:', err);
+    alert('Network error encountered. Please try again later.');
   }
 };
-
 
 const toggleMusic = async () => {
   const audio = bgm.value;
@@ -218,7 +283,7 @@ const closeModal = () => {
   --text-muted: #a0a0b8;
 }
 
-/* pastikan body nggak ada margin */
+/* GLOBAL */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
@@ -241,7 +306,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 20px 32px;
+  padding: 32px 20px 40px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -249,7 +314,7 @@ body {
   overflow: hidden;
 }
 
-/* Starry layer */
+/* STARRY LAYER */
 .starfield {
   position: absolute;
   inset: -20%;
@@ -269,16 +334,19 @@ body {
     opacity: 0.35;
     transform: translate3d(0, 0, 0);
   }
+
   50% {
     opacity: 0.7;
     transform: translate3d(4px, -6px, 0);
   }
+
   100% {
     opacity: 0.45;
     transform: translate3d(-4px, 4px, 0);
   }
 }
 
+/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -300,6 +368,7 @@ header {
   text-transform: uppercase;
 }
 
+/* HERO LAYOUT */
 main {
   flex: 1;
   display: flex;
@@ -338,8 +407,8 @@ main {
 }
 
 h1 {
-  font-size: clamp(2.1rem, 4vw, 3rem);
-  line-height: 1.15;
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  line-height: 1.12;
   margin-bottom: 10px;
 }
 
@@ -380,6 +449,7 @@ h1 span.highlight {
   color: var(--accent-green);
 }
 
+/* HERO PILLS & CTA */
 .pill-row {
   display: flex;
   flex-wrap: wrap;
@@ -464,7 +534,7 @@ h1 span.highlight {
   color: var(--text-muted);
 }
 
-/* Right side */
+/* RIGHT SIDE (CHIBI) */
 .right {
   flex: 1;
   display: flex;
@@ -475,7 +545,7 @@ h1 span.highlight {
 
 .chibi-wrapper {
   position: relative;
-  max-width: 360px;
+  max-width: 380px;
   width: 100%;
 }
 
@@ -529,15 +599,17 @@ h1 span.highlight {
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-8px);
   }
+
   100% {
     transform: translateY(0px);
   }
 }
 
-/* Lyric strip */
+/* LYRIC STRIP */
 .lyric-strip {
   position: relative;
   z-index: 1;
@@ -547,11 +619,9 @@ h1 span.highlight {
   padding: 8px 14px;
   font-size: 0.75rem;
   color: #fefbff;
-  background: linear-gradient(
-    120deg,
-    rgba(125, 95, 255, 0.25),
-    rgba(29, 185, 84, 0.18)
-  );
+  background: linear-gradient(120deg,
+      rgba(125, 95, 255, 0.25),
+      rgba(29, 185, 84, 0.18));
   border: 1px solid rgba(180, 196, 255, 0.5);
   overflow: hidden;
 }
@@ -565,15 +635,46 @@ h1 span.highlight {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
 }
 
+/* SOCIAL PROOF */
+.proof-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(7, 17, 40, 0.7);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(160, 193, 255, 0.4);
+}
+
+.hero-proof {
+  margin-top: 14px;
+}
+
+.proof-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-green);
+}
+
+.proof-text {
+  font-size: 0.8rem;
+  color: #d6dcff;
+  letter-spacing: 0.03em;
+}
+
+/* FOOTER */
 footer {
   font-size: 0.72rem;
   color: rgba(160, 160, 184, 0.7);
-  padding-top: 14px;
+  padding-top: 32px;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -585,11 +686,9 @@ footer {
   right: 20px;
   bottom: 20px;
   z-index: 40;
-  background: radial-gradient(
-      circle at top left,
+  background: radial-gradient(circle at top left,
       rgba(125, 95, 255, 0.32),
-      rgba(5, 8, 22, 0.98)
-    );
+      rgba(5, 8, 22, 0.98));
   border-radius: 16px;
   padding: 10px 14px;
   border: 1px solid rgba(160, 193, 255, 0.7);
@@ -611,11 +710,9 @@ footer {
   justify-content: center;
   font-size: 1.2rem;
   cursor: pointer;
-  background: radial-gradient(
-    circle at 30% 0%,
-    var(--accent-green),
-    var(--accent-purple)
-  );
+  background: radial-gradient(circle at 30% 0%,
+      var(--accent-green),
+      var(--accent-purple));
   color: #fff;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
   transition: transform 0.14s ease, box-shadow 0.14s ease;
@@ -652,99 +749,6 @@ footer {
   opacity: 0.9;
 }
 
-/* RESPONSIVE */
-@media (max-width: 840px) {
-  main {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 28px;
-  }
-
-  .left {
-    max-width: 100%;
-    background: linear-gradient(
-      135deg,
-      rgba(7, 15, 40, 0.96),
-      rgba(5, 8, 22, 0.96)
-    );
-    border-radius: 24px;
-    padding: 20px 18px 18px;
-    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(143, 163, 255, 0.25);
-    backdrop-filter: blur(10px);
-  }
-
-  .cta-row {
-    align-items: center;
-  }
-
-  .waitlist-form {
-    justify-content: center;
-  }
-
-  .speech {
-    position: static;
-    transform: none;
-    margin: 12px auto 0;
-    text-align: center;
-  }
-
-  .chibi-wrapper {
-    max-width: 280px;
-  }
-}
-
-@media (max-width: 640px) {
-  .music-widget {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    bottom: 14px;
-    max-width: 320px;
-    padding: 8px 12px;
-  }
-
-  .music-title,
-  .music-sub,
-  .music-lyric {
-    font-size: 0.68rem;
-  }
-
-  .music-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 18px 14px 24px;
-  }
-
-  header {
-    justify-content: center;
-  }
-
-  .brand-name {
-    font-size: 1rem;
-    letter-spacing: 0.12em;
-  }
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  .lyric-strip {
-    font-size: 0.7rem;
-  }
-
-  .waitlist-form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
 /* MOE MODAL */
 .modal-backdrop {
   position: fixed;
@@ -757,11 +761,9 @@ footer {
 }
 
 .modal-card {
-  background: radial-gradient(
-      circle at top,
+  background: radial-gradient(circle at top,
       rgba(125, 95, 255, 0.4),
-      rgba(5, 10, 32, 0.98)
-    );
+      rgba(5, 10, 32, 0.98));
   border-radius: 24px;
   padding: 18px 20px 16px;
   max-width: 320px;
@@ -851,5 +853,218 @@ footer {
 
 .modal-btn:hover {
   transform: translateY(-1px);
+}
+
+/* FEATURE SHOWCASE */
+.feature-showcase {
+  margin-top: 96px;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.showcase-title {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.showcase-title span {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.showcase-sub {
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.mockup-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mockup-card {
+  width: 260px;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(150, 150, 200, 0.18);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5);
+}
+
+.mockup-card img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.mockup-label {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: #dfe3ff;
+}
+
+/* WHY SECTION */
+.why-section {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.why-section h2 span {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.why-cards {
+  margin-top: 28px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.why-card {
+  width: 280px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  border: 1px solid rgba(150, 150, 200, 0.18);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5);
+}
+
+.why-card h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.why-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* BENEFIT SECTION */
+.benefit-section {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 280px;
+  text-align: left;
+  color: #d5d8ff;
+  font-size: 0.9rem;
+}
+
+.benefit-list li {
+  margin-bottom: 8px;
+}
+
+.benefit-note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 840px) {
+  main {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .left {
+    max-width: 100%;
+    background: linear-gradient(135deg,
+        rgba(7, 15, 40, 0.96),
+        rgba(5, 8, 22, 0.96));
+    border-radius: 24px;
+    padding: 20px 18px 18px;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(143, 163, 255, 0.25);
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-row {
+    align-items: center;
+  }
+
+  .waitlist-form {
+    justify-content: center;
+  }
+
+  .speech {
+    position: static;
+    transform: none;
+    margin: 12px auto 0;
+    text-align: center;
+  }
+
+  .chibi-wrapper {
+    max-width: 280px;
+  }
+
+  .hero-proof {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .music-widget {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: 14px;
+    max-width: 320px;
+    padding: 8px 12px;
+  }
+
+  .music-title,
+  .music-sub,
+  .music-lyric {
+    font-size: 0.68rem;
+  }
+
+  .music-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 22px 14px 28px;
+  }
+
+  header {
+    justify-content: center;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .lyric-strip {
+    font-size: 0.7rem;
+  }
+
+  .waitlist-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 </style>
