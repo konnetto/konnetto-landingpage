@@ -115,7 +115,7 @@
 
           <div class="mockup-card">
             <img src="/mockup-library.png" alt="Anime Library UI" />
-            <div class="mockup-label">Your Anime Picks</div>
+            <div class="mockup-label">Share your favorite anime with friends</div>
           </div>
         </div>
 
